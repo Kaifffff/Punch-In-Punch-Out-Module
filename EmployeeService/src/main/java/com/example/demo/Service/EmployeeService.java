@@ -9,5 +9,5 @@ public interface EmployeeService {
     public List<Employee> all();
     public Employee find(Long id);
     public void delete(Long id);
-
+    public Employee findByEmail(String email);
 }

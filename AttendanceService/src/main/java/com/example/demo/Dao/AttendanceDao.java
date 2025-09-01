@@ -7,7 +7,6 @@ import java.time.Duration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.Model.Attendance;
 import com.example.demo.Repo.AttendanceRepo;
@@ -18,10 +17,6 @@ public class AttendanceDao implements AttendanceService{
 	
 	@Autowired
 	AttendanceRepo ar;
-	
-	@Autowired
-	RestTemplate rt;
-
 
 	@Override
 	public void punchIn(Long empId) {

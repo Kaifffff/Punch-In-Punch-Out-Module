@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.Employee;
@@ -35,6 +36,12 @@ public class EmployeeController {
 	 public Employee one(@PathVariable Long id){
 		 return es.find(id);
      }
+	 
+	 @GetMapping("/fetchByEmail")
+	 public Employee email(@RequestParam String email) {
+		 return es.findByEmail(email);
+	 }
+	 
 	 
 	 @DeleteMapping("/DeleteById/{id}") 
 	 public String del(@PathVariable Long id){

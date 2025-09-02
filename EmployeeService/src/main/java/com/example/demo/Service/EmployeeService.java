@@ -10,4 +10,5 @@ public interface EmployeeService {
     public Employee find(Long id);
     public void delete(Long id);
     public Employee findByEmail(String email);
+    public Employee findByEmailAndPassword(String email , String password);
 }

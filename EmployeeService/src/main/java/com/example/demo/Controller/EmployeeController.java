@@ -42,6 +42,10 @@ public class EmployeeController {
 		 return es.findByEmail(email);
 	 }
 	 
+	 @GetMapping("/fetchByEmailAndPassword")
+	 public Employee emailAndPass(@RequestParam String email,@RequestParam String password) {
+		 return es.findByEmailAndPassword(email, password);
+	 }
 	 
 	 @DeleteMapping("/DeleteById/{id}") 
 	 public String del(@PathVariable Long id){

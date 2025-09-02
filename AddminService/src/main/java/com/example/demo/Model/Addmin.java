@@ -14,7 +14,7 @@ public class Addmin {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	private Long addminId;
 	private String name;
 	private String email;
 	private String password;
@@ -22,12 +22,12 @@ public class Addmin {
 	@Transient
 	private List<Employee> employee = new ArrayList<>();
 
-	public Long getId() {
-		return id;
+	public Long getAddminId() {
+		return addminId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setAddminId(Long addminId) {
+		this.addminId = addminId;
 	}
 
 	public String getName() {
@@ -64,10 +64,11 @@ public class Addmin {
 
 	@Override
 	public String toString() {
-		return "Addmin [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", employee="
-				+ employee + "]";
+		return "Addmin [addminId=" + addminId + ", name=" + name + ", email=" + email + ", password=" + password
+				+ ", employee=" + employee + "]";
 	}
 
+	
 	
 	
 

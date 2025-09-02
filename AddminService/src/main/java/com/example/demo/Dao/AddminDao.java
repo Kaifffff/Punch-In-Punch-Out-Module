@@ -31,7 +31,7 @@ public class AddminDao implements AddminService{
 	public List<Addmin> fetchAll() {
 		List<Addmin> addmin = ar.findAll();
 		for(Addmin a : addmin) {
-			List<Employee> employee = rt.getForObject("http://localhost:9091/employees/fetchByAddminId/"+ a.getId(), ArrayList.class);
+			List<Employee> employee = rt.getForObject("http://localhost:9091/employees/fetchByAddminId/"+ a.getAddminId(), ArrayList.class);
 			a.setEmployee(employee);
 		}
 		return addmin;
@@ -41,11 +41,16 @@ public class AddminDao implements AddminService{
 	public Addmin fetchAddmin(String email, String password) {
 		
 	    Addmin addmin =	ar.findByEmailAndPassword(email, password);
-	    long id = addmin.getId();
+	    long id = addmin.getAddminId();
 	    List<Employee> employee = rt.getForObject("http://localhost:9091/employees/fetchByAddminId/"+ id, ArrayList.class);
 	    addmin.setEmployee(employee);
 		return addmin;
 				
+	}
+
+	@Override
+	public void delete(Long id) {
+		ar.deleteById(id);
 	}
 
 

@@ -69,8 +69,12 @@ public class EmployeeDao implements EmployeeService{
 
 	@Override
 	public List<Employee> findByAddminId(Long addminId) {
-		
-		return er.findByAddminId(addminId);
+		List<Employee> employee = er.findByAddminId(addminId);
+		 for(Employee e : employee) {
+		    	List<Attendance> attendance = rt.getForObject("http://localhost:9092/attendance/history/"+e.getId(), ArrayList.class);
+		    	e.setAttendance(attendance);
+		    }
+		return employee;
 	}
 
 }

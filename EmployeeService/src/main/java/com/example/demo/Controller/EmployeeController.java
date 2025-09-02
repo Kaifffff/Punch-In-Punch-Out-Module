@@ -23,7 +23,8 @@ public class EmployeeController {
      EmployeeService es;
 	
 	 @PostMapping("/register")
-	 public Employee add(@RequestBody Employee e){
+	 public Employee add(@RequestBody Employee e,@RequestParam Long addminId){
+		 e.setAddminId(addminId);
 		 return es.save(e);
 	 }
 	 
@@ -52,4 +53,10 @@ public class EmployeeController {
 		 es.delete(id);
 		 return "Deleted";
      }
+	 
+	 
+	 @GetMapping("/fetchByAddminId/{addminId}")
+	 public List<Employee> fetchByAddminId(@PathVariable Long addminId) {
+	     return es.findByAddminId(addminId);
+	 }
 }

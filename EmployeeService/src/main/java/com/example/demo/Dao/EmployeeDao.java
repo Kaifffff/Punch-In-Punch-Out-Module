@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +19,7 @@ public class EmployeeDao implements EmployeeService{
 	@Autowired
 	EmployeeRepo er;
 	@Autowired
+	@Qualifier("res") 
 	RestTemplate rt;
 
 	@Override
@@ -63,6 +65,12 @@ public class EmployeeDao implements EmployeeService{
 		employee.setAttendance(la);
 		return employee;
 	
+	}
+
+	@Override
+	public List<Employee> findByAddminId(Long addminId) {
+		
+		return er.findByAddminId(addminId);
 	}
 
 }

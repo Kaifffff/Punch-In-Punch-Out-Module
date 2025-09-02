@@ -1,26 +1,12 @@
 package com.example.demo.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
-
-@Entity
 public class Employee {
-	 @Id 
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
 	 private Long addminId;
 	 private String name;
 	 private String email;
 	 private String password;
 	 private String role;
-	 @Transient
-	 private List<Attendance> Attendance = new ArrayList<>();
 	 public Long getId() {
 		 return id;
 	 }
@@ -57,19 +43,11 @@ public class Employee {
 	 public void setRole(String role) {
 		 this.role = role;
 	 }
-	 public List<Attendance> getAttendance() {
-		 return Attendance;
-	 }
-	 public void setAttendance(List<Attendance> attendance) {
-		 Attendance = attendance;
-	 }
 	 @Override
 	 public String toString() {
 		return "Employee [id=" + id + ", addminId=" + addminId + ", name=" + name + ", email=" + email + ", password="
-				+ password + ", role=" + role + ", Attendance=" + Attendance + "]";
+				+ password + ", role=" + role + "]";
 	 }
-
-	
 	 
 	 
 }

@@ -11,4 +11,5 @@ public interface EmployeeService {
     public void delete(Long id);
     public Employee findByEmail(String email);
     public Employee findByEmailAndPassword(String email , String password);
+	public List<Employee> findByAddminId(Long addminId);
 }
